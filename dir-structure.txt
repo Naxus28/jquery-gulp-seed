@@ -1,0 +1,58 @@
+src/
+  index.html
+  assets/
+    fonts/
+    images/
+  js/
+    main.js
+    utilities.js
+  sass/
+    helpers/
+    modules/
+    partials/
+    pages/
+    styles.scss
+  templates/
+    partials/
+    index.jade
+builds/
+  development/
+    fonts/
+    images/
+    styles/
+    js/
+    index.html
+  production/
+
+
+  gulp tasks
+
+  /development
+    *inject √
+    *move html √
+    *browserify √
+    *babelify √
+    *sass √
+    *serve √
+    *livereload √
+    *linter √
+    *concat js √
+    *concat css √
+  
+  /dist
+    *inject √
+    *browserify √
+    *babelify √
+    *sass √
+    *serve √
+    *livereload √
+    *linter √
+    concat js √
+    concat css √
+    uglyfy js √
+    minify css √
+    minify html √
+    revision(?)
+
+
+

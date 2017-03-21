@@ -1,0 +1,140 @@
+/* 
+ * ERIC MAYER'S RESET
+ * http://meyerweb.com/eric/tools/css/reset/ 
+ * v2.0 | 20110126
+ * License: none (public domain)
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*base*/
+
+* {
+  box-sizing: border-box;
+}
+html, body{
+  height: 100%;
+  min-height: 100%;
+  background: #FFEBC4; 
+}
+div {
+  padding-top: 20px;
+}
+label{
+  display: inline-block;
+}
+input {
+  padding: 5px;
+  margin-top: 5px;;
+  border: 1px solid rgb(53, 98, 151);
+  display: block;
+  width: 100%;
+}
+input[type="submit"]{
+  width: auto;
+  border: none; 
+  padding: 10px; 
+  background: rgb(60, 80, 120); 
+  display: block; 
+  color: white; 
+  font-size: 20px;
+  cursor: pointer;
+}
+input[type="submit"]:hover{
+  background: rgb(60, 80, 170); 
+}
+header, footer{
+  padding: 20px 0px;
+}
+
+header{
+  width: 100%; 
+  background: #aaa; 
+  color: white;
+
+  h1{
+    font-size: 36px; 
+    margin-bottom: 10px; 
+    text-align: center;
+  }
+}
+
+.wrapper {
+  padding-top: 50px;
+}
+
+.steps {
+  h1{
+    color: black; 
+    font-size: 24px; 
+    text-align: center; 
+    text-transform: uppercase;
+  }
+}
+
+footer{
+  position: absolute; 
+  bottom: 0px; 
+  width: 100%; 
+  background: green; 
+  color: white;
+
+  h2 {
+    font-size: 24px; 
+    text-align: center;
+  }
+}
+
+label.error{
+  margin-top: 5px;
+  color: #FF3837;
+}
+
+.example {
+  display: flex;
+  transition: all .5s;
+  user-select: none;
+  background: linear-gradient(to bottom, white, black);
+}

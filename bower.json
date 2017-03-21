@@ -1,0 +1,32 @@
+{
+  "name": "oaa-refactor",
+  "description": "Refactor of OAA frontend app to work with Java APIs",
+  "main": "index.js",
+  "author": "Gabriel Ferraz",
+  "contributors": [
+    {"name": "Hassan Hibbert"},
+    {"name": "Toni Baxter-Gibson"}
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-validation": "^1.16.0",
+    "jquery": "^3.1.1",
+    "font-awesome": "^4.7.0"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "scss/font-awesome.scss",
+        "css/font-awesome.css",
+        "fonts/*"
+      ]
+    }
+  }
+}
