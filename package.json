@@ -4,7 +4,7 @@
   "description": "Seed for jquery-gulp apps",
   "main": "index.js",
   "scripts": {
-    "postinstall": "gulp serve"
+    "postinstall": "bower install && gulp serve"
   },
   "author": "Gabriel Ferraz",
   "devDependencies": {
@@ -43,5 +43,8 @@
     "run-sequence": "^1.2.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "wiredep": "^4.0.0"
   }
 }

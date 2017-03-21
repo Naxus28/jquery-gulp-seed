@@ -15,7 +15,8 @@ const buffer = require('vinyl-buffer'),
     path = require('path'),
     plugins = require('gulp-load-plugins')(),
     runSequence = require('run-sequence'),
-    source = require('vinyl-source-stream');
+    source = require('vinyl-source-stream'),
+    wiredep = require('wiredep').stream;
 
 /*
  * node environment variables
@@ -29,10 +30,12 @@ let development = plugins.environments.development,
  * output directory and filenames
  * these will be set conditionally on a gulp task to match the enviroment 
  * (i.e. '/development/styles.css' vs. '/dist/styles.min.css')
+ * default to dev so we can run the 'build' task by itself
  */
-let outputDir,
-    outputCssFileName,
-    outputJsFileName; 
+
+let outputDir = config.paths.development, 
+    outputCssFileName = 'styles.css',
+    outputJsFileName = 'scripts.js'; 
 
 /*
  * build
@@ -62,10 +65,10 @@ gulp.task('html', () => {
  * inject
  */
 gulp.task('inject', ['scripts', 'sass'], () => {
-  let injectOptions = { addRootSlash: false, ignorePath: outputDir };
+  let injectOptions = { addRootSlash: false, ignorePath: outputDir, relative: true };
   let jsSource = gulp.src(path.join(outputDir, '/js/', outputJsFileName), { read: false });
   let cssSource = gulp.src(path.join(outputDir, '/styles/', outputCssFileName), { read: false });
-  let targetHtml = path.join(outputDir, '/index.html');
+  let targetHtml = path.join(outputDir, '/**/*.html');
 
   return gulp.src(targetHtml)
     .pipe(plugins.inject(jsSource, injectOptions))

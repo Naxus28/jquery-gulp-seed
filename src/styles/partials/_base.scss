@@ -50,14 +50,13 @@ table {
 }
 
 /*base*/
-
 * {
   box-sizing: border-box;
 }
 html, body{
   height: 100%;
   min-height: 100%;
-  background: #FFEBC4; 
+  background: #90AFC5; 
 }
 div {
   padding-top: 20px;
@@ -69,6 +68,7 @@ input {
   padding: 5px;
   margin-top: 5px;;
   border: 1px solid rgb(53, 98, 151);
+  border-radius: 3px;
   display: block;
   width: 100%;
 }
@@ -88,53 +88,54 @@ input[type="submit"]:hover{
 header, footer{
   padding: 20px 0px;
 }
-
 header{
   width: 100%; 
-  background: #aaa; 
-  color: white;
+  background: #2A3132; 
 
   h1{
     font-size: 36px; 
     margin-bottom: 10px; 
+    padding: 30px;
+    text-align: center;
+    color: white;
+  }
+}
+.wrapper {
+  padding: 100px 20px 40px;
+
+  ol {
+    list-style-type: decimal;
+    width: 50%;
+    margin: 20px auto;
+    font-size: 20px;
+    line-height: 28px;
+  }
+  h2 {
+    font-size: 24px;
     text-align: center;
   }
 }
-
-.wrapper {
-  padding-top: 50px;
-}
-
-.steps {
-  h1{
-    color: black; 
-    font-size: 24px; 
-    text-align: center; 
-    text-transform: uppercase;
-  }
-}
-
 footer{
   position: absolute; 
   bottom: 0px; 
   width: 100%; 
-  background: green; 
-  color: white;
 
-  h2 {
-    font-size: 24px; 
+  p {
     text-align: center;
+    padding: 20px;
   }
 }
-
 label.error{
   margin-top: 5px;
   color: #FF3837;
 }
+#form-validation-example {
+  width: 30%; 
+  margin: 150px auto 0px;
+}
 
-.example {
-  display: flex;
-  transition: all .5s;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black);
+.fa {
+  .fa-arrow-left {
+    color: white;
+  }
 }

@@ -56,7 +56,7 @@ table {
 html, body {
   height: 100%;
   min-height: 100%;
-  background: #FFEBC4; }
+  background: #90AFC5; }
 
 div {
   padding-top: 20px; }
@@ -68,6 +68,7 @@ input {
   padding: 5px;
   margin-top: 5px;
   border: 1px solid #356297;
+  border-radius: 3px;
   display: block;
   width: 100%; }
 
@@ -89,44 +90,43 @@ header, footer {
 
 header {
   width: 100%;
-  background: #aaa;
-  color: white; }
+  background: #2A3132; }
   header h1 {
     font-size: 36px;
     margin-bottom: 10px;
-    text-align: center; }
+    padding: 30px;
+    text-align: center;
+    color: white; }
 
 .wrapper {
-  padding-top: 50px; }
-
-.steps h1 {
-  color: black;
-  font-size: 24px;
-  text-align: center;
-  text-transform: uppercase; }
+  padding: 100px 20px 40px; }
+  .wrapper ol {
+    list-style-type: decimal;
+    width: 50%;
+    margin: 20px auto;
+    font-size: 20px;
+    line-height: 28px; }
+  .wrapper h2 {
+    font-size: 24px;
+    text-align: center; }
 
 footer {
   position: absolute;
   bottom: 0px;
-  width: 100%;
-  background: green;
-  color: white; }
-  footer h2 {
-    font-size: 24px;
-    text-align: center; }
+  width: 100%; }
+  footer p {
+    text-align: center;
+    padding: 20px; }
 
 label.error {
   margin-top: 5px;
   color: #FF3837; }
 
-.example {
-  display: -ms-flexbox;
-  display: flex;
-  transition: all .5s;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background: linear-gradient(to bottom, white, black); }
+#form-validation-example {
+  width: 30%;
+  margin: 150px auto 0px; }
+
+.fa .fa-arrow-left {
+  color: white; }
 
 /*# sourceMappingURL=styles.css.map */

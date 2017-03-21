@@ -1,5 +1,9 @@
 import $ from 'jquery';
-import 'jquery-validation';
+import { validateInput } from './utilities/form-validation';
+
+$(document).ready(() => { 
+  validateInput('#form-validation-example');
+});
 
 
 
