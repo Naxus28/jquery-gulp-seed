@@ -10,9 +10,11 @@ _The project offers:_
 
 3) A development server and a production server.
 
-4) Support for ECMAScript 2015.
+4) Support for ECMAScript 2015 (including module loader using import/export).
 
-5) Several essential node packages and bower components already installed, including jQuery and jQuery Validation.
+5) Several essential node packages already installed, including jQuery and jQuery Validation.
+
+6) An example of form validation using [jquery-validation](https://jqueryvalidation.org/).
 
 6) A comprehensive `.gitignore` file.
 
@@ -31,7 +33,7 @@ _The project offers:_
 
 ## Usage
 
-build
+build (the serve commands below will build the code so you may not need to run this task by itslef)
 ```bash
 $ gulp build
 ```
@@ -52,6 +54,10 @@ When you write HTML, Sass, JavaScript, and jQuery and save the code Gulp will re
 ## New Gulp Tasks
 
 Developers can add other gulp tasks if they need to. I just advise that they familiarize themselves with current tasks to make sure new tasks are registered in the right order to not break the pipeline.
+
+## Server Environments
+
+Although you can develop while serving from the /dist directory, it is not recommended because production tasks such as minification and uglification of code are not necessary for development and may delay the gulp build by a couple of seconds on every 'save'.
 
 
 

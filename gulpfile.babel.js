@@ -76,6 +76,16 @@ gulp.task('inject', ['scripts', 'sass'], () => {
     .pipe(gulp.dest(outputDir));
 }); 
 
+// to-do
+gulp.task('wiredep-bower', function () {
+  gulp.src(config.srcFiles.htmlSrc)
+    .pipe(wiredep({
+      optional: 'configuration',
+      goes: 'here'
+    }))
+    .pipe(gulp.dest('./dest'));
+});
+
 /*
  * scripts
  */
