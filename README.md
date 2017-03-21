@@ -27,9 +27,16 @@ _The project offers:_
 
 ## Install
 
-`git clone https://github.com/Naxus28/jquery-gulp-seed.git`
+```bash
+$ git clone https://github.com/Naxus28/jquery-gulp-seed.git
 
-`npm install` (runs development server in `postinstall`)
+$ cd jquery-gulp-seed
+
+$ npm install  
+
+#npm postinstall will run bower install and serve /builds/development 
+
+```
 
 ## Usage
 
