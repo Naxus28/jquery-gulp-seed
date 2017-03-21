@@ -1,20 +1,12 @@
 {
-  "name": "oaa-refactor",
+  "name": "jquery-gulp-seed-project",
   "version": "1.0.0",
-  "description": "Refactor of OAA frontend app to work with Java APIs",
+  "description": "Seed for jquery-gulp apps",
   "main": "index.js",
   "scripts": {
     "postinstall": "gulp serve"
   },
   "author": "Gabriel Ferraz",
-  "contributors": [
-    {
-      "name": "Hassan Hibbert"
-    },
-    {
-      "name": "Toni Baxter-Gibson"
-    }
-  ],
   "devDependencies": {
     "babel-core": "^6.20.0",
     "babel-eslint": "^7.1.1",

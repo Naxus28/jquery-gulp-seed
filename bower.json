@@ -1,12 +1,8 @@
 {
-  "name": "oaa-refactor",
-  "description": "Refactor of OAA frontend app to work with Java APIs",
+  "name": "query-gulp-seed-project",
+  "description": "Seed for jquery-gulp apps",
   "main": "index.js",
   "author": "Gabriel Ferraz",
-  "contributors": [
-    {"name": "Hassan Hibbert"},
-    {"name": "Toni Baxter-Gibson"}
-  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
