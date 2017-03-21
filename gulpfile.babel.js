@@ -32,7 +32,6 @@ let development = plugins.environments.development,
  * (i.e. '/development/styles.css' vs. '/dist/styles.min.css')
  * default to dev so we can run the 'build' task by itself
  */
-
 let outputDir = config.paths.development, 
     outputCssFileName = 'styles.css',
     outputJsFileName = 'scripts.js'; 
