@@ -157,8 +157,6 @@ __spec.js file__: `src/spec/utilities/form-validation.spec.js` (sample test incl
 
 [gulp](http://gulpjs.com/) - An automating tool to streamline the development workflow
 
-[full sail's ui-toolkit](http://stage-ui.fullsail.edu/) - A UI toolkit to be used across Full Sail's apps (in development)
-
 [javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - The browser's native scripting language
 
 [jquery](https://jquery.com/) - Main frontend javascript library
