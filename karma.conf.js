@@ -1,6 +1,6 @@
 // Karma configuration
 // Generated on Fri May 12 2017 16:53:31 GMT-0400 (EDT)
-// COnfiguration options: https://karma-runner.github.io/1.0/config/configuration-file.html
+// Configuration options: https://karma-runner.github.io/1.0/config/configuration-file.html
 
 module.exports = function(config) {
   config.set({
