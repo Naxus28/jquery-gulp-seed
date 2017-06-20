@@ -46,9 +46,9 @@ Open a terminal window and:
 ```bash
 $ cd ~/Sites #or wherever you keep your projects
 
-$ git clone http://git.fullsail.com/web-software/oaa-refactor.git
+$ git clone http://git.fullsail.com/web-software/jquery-gulp-seed.git
 
-$ cd oaa-refactor
+$ cd jquery-gulp-seed
 
 $ npm install #npm postinstall will run bower install and serve /builds/development on port 3000 (http://localhost:3000)
 ```
