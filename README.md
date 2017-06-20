@@ -46,7 +46,7 @@ Open a terminal window and:
 ```bash
 $ cd ~/Sites #or wherever you keep your projects
 
-$ git clone http://git.fullsail.com/web-software/jquery-gulp-seed.git
+$ git clone https://github.com/Naxus28/jquery-gulp-seed.git
 
 $ cd jquery-gulp-seed
 
