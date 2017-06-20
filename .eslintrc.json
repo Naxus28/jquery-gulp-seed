@@ -3,7 +3,8 @@
   "env": {
     "browser": true,
     "es6"    : true,
-    "node"   : true
+    "node"   : true,
+    "jasmine": true
   },
   "globals": [
     "jQuery",
@@ -31,5 +32,4 @@
     "no-unneeded-ternary": "warn",
     "object-curly-spacing": ["warn", "always"]
   }
-
 }

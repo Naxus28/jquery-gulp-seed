@@ -4,6 +4,11 @@
 import config from './gulp.config';
 
 /*
+ * require tests to be able to run tests on terminal
+ */
+require('./gulp.tests');
+
+/*
  * plugins
  */
 const buffer = require('vinyl-buffer'),
@@ -15,11 +20,11 @@ const buffer = require('vinyl-buffer'),
     path = require('path'),
     plugins = require('gulp-load-plugins')(),
     runSequence = require('run-sequence'),
-    source = require('vinyl-source-stream'),
-    wiredep = require('wiredep').stream;
+    source = require('vinyl-source-stream');
+
 
 /*
- * node environment variables
+ * ==node environment variables==
  * tasks check these variables to conditionally pipe plugins
  * environment is set on tasks 'set-dev' and 'set-prod', which run for the dev server and prod server respectively
  */
@@ -27,33 +32,32 @@ let development = plugins.environments.development,
     production = plugins.environments.production;
 
 /*
- * output directory and filenames
- * these will be set conditionally on a gulp task to match the enviroment 
- * (i.e. '/development/styles.css' vs. '/dist/styles.min.css')
- * default to dev so we can run the 'build' task by itself
+ * ==output directory and output filenames for each environment==
+ * i.e. '/development/styles.css' vs. '/dist/styles.min.css'
+ * default to dev and set production values in 'set-prod' task
  */
-let outputDir = config.paths.development, 
-    outputCssFileName = 'styles.css',
-    outputJsFileName = 'scripts.js'; 
+let outputDir = config.dirPaths.development, 
+    outputCssFileName = config.fileTypesForBuilds.dev.css,
+    outputJsFileName = config.fileTypesForBuilds.dev.js;
 
 /*
  * build
  */
-gulp.task('build', ['clean', 'html', 'lint', 'scripts', 'sass', 'inject']);
+gulp.task('build', ['clean', 'copy-font-awesome-fonts', 'font-awesome', 'html', 'lint', 'scripts', 'sass', 'inject']);
 
 /*
  * clean
  */
 gulp.task('clean', () => {
   let dir = path.join(outputDir, '/**/*');
-  return del(dir);
+  return del.sync(dir);
 });
 
 /*
  * html
  */
 gulp.task('html', () => {
-  gulp.src(config.srcFiles.htmlSrc)
+  return gulp.src(config.srcFiles.htmlSrc)
     .pipe(plugins.size({ title: 'HTML FILES SIZE:' }))
     .pipe(production(plugins.htmlmin({ collapseWhitespace: true })))
     .pipe(gulp.dest(outputDir))
@@ -65,8 +69,11 @@ gulp.task('html', () => {
  */
 gulp.task('inject', ['scripts', 'sass'], () => {
   let injectOptions = { addRootSlash: false, ignorePath: outputDir, relative: true };
+  let fontAwesomeFile = path.join(outputDir, config.fontAwesome.destDirs.css, config.fileTypesForBuilds.fontAwesomeCss);
+  let cssFile = path.join(outputDir, '/styles/', outputCssFileName);
+  
   let jsSource = gulp.src(path.join(outputDir, '/js/', outputJsFileName), { read: false });
-  let cssSource = gulp.src(path.join(outputDir, '/styles/', outputCssFileName), { read: false });
+  let cssSource = gulp.src( [cssFile, fontAwesomeFile], { read: false });
   let targetHtml = path.join(outputDir, '/**/*.html');
 
   return gulp.src(targetHtml)
@@ -75,14 +82,42 @@ gulp.task('inject', ['scripts', 'sass'], () => {
     .pipe(gulp.dest(outputDir));
 }); 
 
-// to-do
-gulp.task('wiredep-bower', function () {
-  gulp.src(config.srcFiles.htmlSrc)
-    .pipe(wiredep({
-      optional: 'configuration',
-      goes: 'here'
-    }))
-    .pipe(gulp.dest('./dest'));
+/*
+ * copy font-awesome source files (.eot, .svg, .ttf, .woff, .woff2)
+ */
+gulp.task('copy-font-awesome-fonts', () => {
+  return gulp.src(path.join(config.fontAwesome.srcFiles.fonts))
+     .pipe(plugins.size({ title: 'FONT-AWESOME FONTS FILES SIZE:' }))
+     .pipe(gulp.dest(path.join(outputDir, config.fontAwesome.destDirs.fonts)))
+     .pipe(production(plugins.size({ title: 'FONT-AWESOME FONTS BUNDLED FILES SIZE:' })));
+});
+
+/*
+ * runs tasks for /bower_components/font-awesome
+ */
+gulp.task('font-awesome', () => {
+  return gulp.src(config.fontAwesome.srcFiles.css)
+    .pipe(plugins.size({ title: 'FONT-AWESOME FILES SIZE:' }))
+    .pipe(plugins.header(config.headerMsg))
+    .pipe(production(plugins.cssnano()))
+    .pipe(gulp.dest(path.join(outputDir, config.fontAwesome.destDirs.css)));
+});
+
+/*
+ * sass
+ */
+gulp.task('sass', () => {
+  return gulp.src([config.srcFiles.sassSrc])
+    .pipe(plugins.size({ title: 'SASS FILES SIZE:' }))
+    .pipe(development(plugins.sourcemaps.init({ loadMaps: true }))) 
+    .pipe(plugins.sass().on('error', plugins.notify.onError(config.notifyConfig('SASS'))))
+    .pipe(plugins.autoprefixer(config.sassAutoprefixerConfig))
+    .pipe(plugins.concat(outputCssFileName))
+    .pipe(plugins.header(config.headerMsg))
+    .pipe(production(plugins.cssnano()))
+    .pipe(development(plugins.sourcemaps.write('./')))
+    .pipe(gulp.dest(path.join(outputDir, '/styles')))
+    .pipe(production(plugins.size({ title: 'SASS BUNDLED FILES SIZE:' })));
 });
 
 /*
@@ -116,24 +151,6 @@ gulp.task('lint', () => {
     .pipe(plugins.eslint.format());
 });
 
-/*
- * sass
- */
-gulp.task('sass', () => {
-  let autoprefixerConfig = { browsers: ['last 2 versions'], cascade: false };
-  
-  gulp.src(config.srcFiles.sassSrc)
-    .pipe(plugins.size({ title: 'SASS FILES SIZE:' }))
-    .pipe(development(plugins.sourcemaps.init({ loadMaps: true }))) 
-    .pipe(plugins.sass().on('error', plugins.notify.onError(config.notifyConfig('SASS'))))
-    .pipe(plugins.autoprefixer(autoprefixerConfig))
-    .pipe(plugins.concat(outputCssFileName))
-    .pipe(plugins.header(config.headerMsg))
-    .pipe(production(plugins.cssnano()))
-    .pipe(development(plugins.sourcemaps.write('./')))
-    .pipe(gulp.dest(path.join(outputDir, '/styles')))
-    .pipe(production(plugins.size({ title: 'SASS BUNDLED FILES SIZE:' })));
-});
 
 /*
  * watch
@@ -155,14 +172,11 @@ gulp.task('reload', () => browserSync.reload());
 let setEnvironment = (env) => {
   if (env === 'dev') {
     plugins.environments.current(development);
-    outputDir = config.paths.development;
-    outputCssFileName = 'styles.css';
-    outputJsFileName = 'scripts.js';
   } else {
     plugins.environments.current(production);
-    outputDir = config.paths.dist;
-    outputCssFileName = 'styles.min.css';
-    outputJsFileName = 'scripts.min.js';
+    outputDir = config.dirPaths.dist;
+    outputCssFileName = config.fileTypesForBuilds.prod.minCss;
+    outputJsFileName = config.fileTypesForBuilds.prod.minJs;
   }
 };
 
@@ -183,9 +197,8 @@ let browserSyncInit = (serveDir) => {
 };
 
 // development server
-gulp.task('serve', ['set-dev', 'build', 'watch'], () => browserSyncInit(config.paths.development)); 
+gulp.task('serve', ['set-dev', 'build', 'watch'], () => browserSyncInit(config.dirPaths.development)); 
 
 // production server
-gulp.task('serve:dist', ['set-prod', 'build', 'watch'], () => browserSyncInit(config.paths.dist)); 
-
+gulp.task('serve:dist', ['set-prod', 'build', 'watch'], () => browserSyncInit(config.dirPaths.dist)); 
 
