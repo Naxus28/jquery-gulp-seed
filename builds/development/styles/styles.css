@@ -6,6 +6,7 @@
  * v2.0 | 20110126
  * License: none (public domain)
  */
+@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,300italic");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -56,7 +57,8 @@ table {
 html, body {
   height: 100%;
   min-height: 100%;
-  background: #90AFC5; }
+  background: #90AFC5;
+  font-family: "Lato", sans-serif; }
 
 div {
   padding-top: 20px; }
@@ -84,9 +86,8 @@ input[type="submit"] {
   color: white;
   font-size: 20px;
   cursor: pointer; }
-
-input[type="submit"]:hover {
-  background: #3c50aa; }
+  input[type="submit"]:hover {
+    background: #336699; }
 
 header, footer {
   padding: 20px 0px; }
