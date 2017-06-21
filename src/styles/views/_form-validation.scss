@@ -1,0 +1,20 @@
+label.error{
+  margin-top: 5px;
+  color: $red-orange;
+}
+#form-validation-example {
+  width: 30%; 
+  margin: 100px auto 0px;
+}
+.validation {
+  p {
+    margin-top: 40px;
+    color: $calypso;
+    text-align: center;
+    font-size: 24px;
+    a {
+      color: $calypso;
+      text-decoration: none;
+    }
+  }
+}
