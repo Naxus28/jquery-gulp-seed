@@ -40,31 +40,36 @@ input[type="submit"]{
   }
 }
 header, footer{
-  padding: 20px 0px;
+  padding: 8px 0px;
+}
+h1, .h1{
+  font-size: 36px; 
+  text-align: center;
+}
+h2, .h2{
+  font-size: 30px;
+  text-align: center;
+}
+p{
+  font-size: 20px;
 }
 header{
   width: 100%; 
   background: $outer-space; 
 
   h1{
-    font-size: 36px; 
-    margin-bottom: 10px; 
     padding: 30px;
-    text-align: center;
     color: white;
   }
 }
 .wrapper {
   padding: 100px 20px 40px;
   h2 {
-    font-size: 30px;
-    text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
   }
   p {
     text-align: center;
-    font-size: 20px;
     line-height: 32px;
     a {
       color: $calypso;
@@ -79,30 +84,5 @@ footer{
   p {
     text-align: center;
     padding: 20px;
-  }
-}
-label.error{
-  margin-top: 5px;
-  color: $red-orange;
-}
-#form-validation-example {
-  width: 30%; 
-  margin: 100px auto 0px;
-}
-.validation {
-  p {
-    margin-top: 40px;
-    color: #336B87;
-    text-align: center;
-    font-size: 24px;
-    a {
-      color: $calypso;
-      text-decoration: none;
-    }
-  }
-}
-.fa {
-  .fa-arrow-left {
-    color: white;
   }
 }
