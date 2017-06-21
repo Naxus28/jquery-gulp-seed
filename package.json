@@ -1,7 +1,7 @@
 {
   "name": "jquery-gulp-seed-project",
   "version": "1.0.0",
-  "description": "Seed for jquery-gulp apps",
+  "description": "Seed project for jquery-gulp apps",
   "main": "index.js",
   "scripts": {
     "postinstall": "bower install && gulp serve"

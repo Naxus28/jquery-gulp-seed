@@ -1,6 +1,6 @@
 {
   "name": "query-gulp-seed-project",
-  "description": "Seed for jquery-gulp apps",
+  "description": "Seed project for jquery-gulp apps",
   "main": "index.js",
   "author": "Gabriel Ferraz",
   "license": "MIT",
