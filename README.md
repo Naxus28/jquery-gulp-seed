@@ -146,7 +146,7 @@ i.e.
 
 __js file__: `src/js/utilities/form-validation.js` 
 
-__spec.js file__: `src/spec/utilities/form-validation.spec.js` (sample test included in the app)
+__spec.js file__: `src/spec/utilities/form-validation.spec.js` (sample test included in the app in this directory)
 
 
 ## Built With
