@@ -132,7 +132,7 @@ On the terminal window run `npm install -g karma-cli` to be able to to run karma
 
 __Karma Config file__
 
-You will find the configuration for karma on `karma.conf.js`. If for any reason you need to change the configuration during a test (you shouldn't need to) make sure you don't break any other test and communicate with team members before pushing your changes (https://karma-runner.github.io/1.0/config/configuration-file.html).
+You will find the configuration for karma on `karma.conf.js`. (https://karma-runner.github.io/1.0/config/configuration-file.html).
 
 __Tests directory structure and filename__
 
