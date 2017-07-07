@@ -138,7 +138,7 @@ __Tests directory structure and filename__
 
 To keep tests organized I suggest that:
 
-*  Test's filename match the ".js" file whose functionality is being tested against. Test file names should follow this convention: "filename.spec.js" (i.e. a test for "form-validation.js" should be written on file "form-validation.spec.js")
+*  Test's filename match the ".js" file whose functionality is being tested against. Tests' file names should follow this convention: "filename.spec.js" (i.e. a test for "form-validation.js" should be written on file "form-validation.spec.js")
 
 * Tests be written in a sub-directory of the `./spec` directory whose name matches the "/js" sub-directory where the app's functionality is written .  
 
